@@ -34,12 +34,15 @@ func ControlFlow() {
 	// Infinite loop, blocks thread(execution)
 	for {
 		fmt.Println("Hello World")
+		break // To break infinite loop so it can resume execution
+
 	}
 	ch := make(chan int)
 
-	// Select statement blocks thread(execution), but only works if there is an input on what its listening
+	// Select statement also blocks thread(execution), but only works if there is an input on what its listening
 	select {
 	case x := <-ch:
 		fmt.Println(x)
+		break
 	}
 }
